@@ -6,8 +6,8 @@ export const LoginData = z.object({
 });
 
 export const SignUpData = z.object({
-  firstName: z.string(),
-  lastName: z.string(),
+  firstName: z.string().optional(),
+  lastName: z.string().optional(),
   email: z.string().email(),
   password: z.string(),
 });

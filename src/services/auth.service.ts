@@ -70,8 +70,12 @@ class AuthService {
 
     const dbUser = new User();
     dbUser.email = user.email;
-    dbUser.firstName = user.firstName;
-    dbUser.lastName = user.lastName;
+    if (user.firstName) {
+      dbUser.firstName = user.firstName;
+    }
+    if (user.lastName) {
+      dbUser.lastName = user.lastName;
+    }
     dbUser.password = user.password;
 
     const savedUser = await transactionEntityManager.save(dbUser);

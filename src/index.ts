@@ -65,7 +65,7 @@ app.use(
   }).unless({
     path: [
       // mention path where you dont wanna check token in following format RegExp("/api/v1/user/auth"),
-      RegExp("/api/v1/users/auth"),
+      RegExp("/auth"),
     ],
   })
 );
@@ -80,7 +80,7 @@ app.use((err: any, _req: Request, res: Response, next: NextFunction) => {
 
 const port = process.env.PORT || 80;
 
-app.use("/api/v1", router);
+app.use("/", router);
 
 app.use(errorMiddleware);
 
